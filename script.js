@@ -46,27 +46,13 @@ function deleteSubmissionByIndex(array, index){
     array.splice(index, 1);
 }
 
-function deleteSubmissionByName(array, name){
-    //let index = 0;
-    // for(let arr of array){
-    //     index = arr.findIndex(name);
-    // }
-    //console.log(index);
-    //let index = array.findIndex(name)
-    //array.splice(index, 1)
-   
-    let index = array.findIndex(function(){
-        if(array.name === name){
-            return name;
-        }
+function deleteSubmissionByName(array, name){ 
+    let index = array.findIndex(personsName => {
+        return personsName.name === name;
     })
-
-    console.log(index);
-   
-
+    array.splice(index, 1);
 }
-    // let deleteIndex = array.name.findIndex(name);
-    // array.splice(deleteIndex, 1);
+  
 
 
     function editSubmission(array, index, score){
