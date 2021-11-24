@@ -53,8 +53,6 @@ function deleteSubmissionByName(array, name){
     array.splice(index, 1);
 }
   
-
-
     function editSubmission(array, index, score){
         if(score >= 60){
             array[index].passed = true;
@@ -65,13 +63,11 @@ function deleteSubmissionByName(array, name){
         }
     }
 
-    function findSubmissionByName(array, name){  // needs work
-        let number = array.find(function(){
-            if(name === array.name){
-                return array
-            }
-        });
-        return number;
+    function findSubmissionByName(array, name){ 
+        let submission = array.find(personsName => {
+            return personsName.name === name
+        })
+        return submission;
     }
 
     function findLowestScore(array){
@@ -84,7 +80,24 @@ function deleteSubmissionByName(array, name){
                 lowestScore = item.score;
                 index++;
             }
-            
         }
         return array[index];
+    }
+
+    function findLowestScore(array){ /// needs work
+        // array.forEach(function(currentValue, index, arr), thisValue)
+        
+        let result = array.forEach(findLowest)
+
+        function findLowest(lowestScore, currentScore){
+            let LowestScore = 100;
+            currentScore = array.score;
+            if(currentScore > lowestScore){
+                currentScore = lowestScore;
+            } else{
+                return currentScore
+            }
+        }
+        console.log(result);
+
     }
