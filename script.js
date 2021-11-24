@@ -114,3 +114,17 @@ function deleteSubmissionByName(array, name){
         }
         return total / array.length
     }
+
+    function filterPassing(array){
+        let result = array.filter(submission => {
+            return submission.score >= 60;
+        })
+        return result
+    }
+
+    function filter90AndAbove(array){
+        let result = array.filter(submission => {
+            return submission.score >= 90;
+        })
+        return result;
+    }
