@@ -106,3 +106,11 @@ function deleteSubmissionByName(array, name){
     //     console.log(result);
 
     // }
+
+    function findAverageScore(array){
+        let total = 0;
+        for(let item of array){
+            total += item.score;
+        }
+        return total / array.length
+    }
