@@ -47,8 +47,8 @@ function deleteSubmissionByIndex(array, index){
 }
 
 function deleteSubmissionByName(array, name){ 
-    let index = array.findIndex(personsName => {
-        return personsName.name === name;
+    let index = array.findIndex(submission => {
+        return submission.name === name;
     })
     array.splice(index, 1);
 }
@@ -64,8 +64,8 @@ function deleteSubmissionByName(array, name){
     }
 
     function findSubmissionByName(array, name){ 
-        let submission = array.find(personsName => {
-            return personsName.name === name
+        let submission = array.find(submission => {
+            return submission.name === name
         })
         return submission;
     }
@@ -74,30 +74,35 @@ function deleteSubmissionByName(array, name){
         let lowestScore = 100;
         let index = 0;
         for(let item of array){
-            console.log(array[index].score)
-
-            while(item.score < lowestScore){
+            if(item.score < lowestScore){
                 lowestScore = item.score;
                 index++;
-            }
-        }
-        return array[index];
-    }
-
-    function findLowestScore(array){ /// needs work
-        // array.forEach(function(currentValue, index, arr), thisValue)
-        
-        let result = array.forEach(findLowest)
-
-        function findLowest(lowestScore, currentScore){
-            let LowestScore = 100;
-            currentScore = array.score;
-            if(currentScore > lowestScore){
-                currentScore = lowestScore;
             } else{
-                return currentScore
+                return array[index-1];
             }
         }
-        console.log(result);
-
+        
     }
+
+    // function findLowestScore(array){ /// needs work
+    //     // array.forEach(function(currentValue, index, arr), thisValue)
+        
+    //     let result = array.forEach(findLowest)
+        
+    //     function findLowest(score){
+    //       if(score.score > 94){
+    //           return "yes"
+    //       }
+          
+          
+          
+    //         // let currentScore = item.score;
+    //         // if(currentScore > item.score){
+    //         //     currentScore = item.score;
+    //         // } else{
+    //         //     return currentScore;
+    //         // }
+    //     }
+    //     console.log(result);
+
+    // }
