@@ -15,7 +15,7 @@ let submissions = [
     {
         name: "Jack",
         score: 59,
-        date: "2019- 07-05",
+        date: "2019-07-05",
         passed: false
     },
     {
@@ -54,12 +54,11 @@ function deleteSubmissionByName(array, name) {
 }
 
 function editSubmission(array, index, score) {
+    array[index].score = score;
     if (score >= 60) {
         array[index].passed = true;
-        array[index].score = score;
     } else {
         array[index].passed = false;
-        array[index].score = score;
     }
 }
 
@@ -70,7 +69,7 @@ function findSubmissionByName(array, name) {
     return submission;
 }
 
-// function findLowestScore(array){     NEEDS WORK....
+// function findLowestScore(array){ 
 //     let lowestScore = 100;
 //     let index = 0;
 //     for(let item of array){
@@ -81,44 +80,24 @@ function findSubmissionByName(array, name) {
 //             return array[index-1];
 //         }
 //     }
-
 // }
 
-function findLowestScore(array) { /// needs work
-    // array.forEach(function(currentValue, index, arr), thisValue)
+function findLowestScore(array) {
     let lowestScore = 100
     let count = 0;
     let final = [];
+
     array.forEach(findLowest)
 
-    function findLowest(item, index, arr) {
-        if (item.score < lowestScore) {
+    function findLowest(item) {
+        if (item.score < lowestScore) { 
             lowestScore = item.score;
-            console.log(`${lowestScore}  ${index}`)
-            count++;
+            final = array[count]
         }
-        else {
-             final = arr[count -1];
-        }
-        
+        count++;
     }
-    console.log(final);
+    return final;
 }
-
-
-
-//   if(score.score > 94){
-//       return "yes"
-//   }
-//     let currentScore = item.score;
-//     if(currentScore > item.score){
-//         currentScore = item.score;
-//     } else{
-//         return currentScore;
-//     }
-// }
-// console.log(result);
-
 
 function findAverageScore(array) {
     let total = 0;
@@ -140,4 +119,26 @@ function filter90AndAbove(array) {
         return submission.score >= 90;
     })
     return result;
+}
+
+// EXTENDED CHALLENGES
+
+function createRange(start, end){
+    let newRange = [];
+    for(let i = start; i <= end; i++){
+        newRange.push(i);
+    }
+    console.log(newRange);
+}
+
+function countElements(array){
+    let elements = new Object();
+
+    for(let arr of array){
+        if(elements.includes(arr)){
+            
+        }
+        elements.arr = arr;
+        console.log(elements)
+    }
 }
